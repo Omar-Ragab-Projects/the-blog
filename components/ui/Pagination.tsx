@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import arrowLeft from "@/public/icons/arrowLeft.svg";
 import arrowRight from "@/public/icons/arrowRight.svg";
 
@@ -18,7 +18,7 @@ function Pagination({
   setCurrentPaginate,
   setPaginateIndexes,
 }: PaginationTypes) {
-  React.useEffect(() => {
+  useEffect(() => {
     if (setPaginateIndexes) {
       setPaginateIndexes({
         start: currentPaginate * postsPerPaginate - postsPerPaginate,
@@ -27,7 +27,7 @@ function Pagination({
     }
   }, [currentPaginate, postsPerPaginate, setPaginateIndexes]);
 
-  const totalPagesArray = React.useMemo(
+  const totalPagesArray = useMemo(
     () => Array.from({ length: totalPages }, (_, idx) => idx + 1),
     [totalPages]
   );
