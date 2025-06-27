@@ -37,16 +37,6 @@
   --color-paragraph: #c0c5d0;
 }
 
-@layer components {
-  .section-header {
-    @apply text-2xl leading-8 mb-8 font-semibold;
-  }
-
-  .disable-btn {
-    @apply text-paragraph opacity-60 !cursor-auto select-none;
-  }
-}
-
 @utility flex-between {
   @apply flex items-center justify-between;
 }
@@ -77,6 +67,18 @@ body {
 
 .inner-container {
   @apply my-[60px] px-8 lg:px-0;
+}
+
+.section-header {
+  @apply text-2xl leading-8 mb-8 font-semibold;
+}
+
+.disable-btn {
+  @apply text-paragraph opacity-60 !cursor-auto select-none;
+}
+
+.spinner {
+  @apply block m-auto w-12 h-12 border-1 border-foreground border-l-transparent animate-spin rounded-full;
 }
 
 .blog-posts-wrap > article {

@@ -32,3 +32,20 @@ export const categories = [
 ];
 
 export const colors = ["purple", "blue", "pink", "green", "navy"];
+
+export const errorMetadata = {
+  title: "Post not found",
+  description: "The requested blog post could not be loaded.",
+  openGraph: {
+    title: "Post not found",
+    description: "The requested blog post could not be loaded.",
+    images: [
+      {
+        url: "/image.png",
+        width: 1200,
+        height: 630,
+        alt: "Post not found",
+      },
+    ],
+  },
+};
