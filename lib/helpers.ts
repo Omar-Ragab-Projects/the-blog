@@ -1,4 +1,3 @@
-export function getRandomNumber(num: number, min: number = 0) {
-  let randomNum = Math.ceil(Math.random() * num);
-  return randomNum >= min ? randomNum : randomNum + 1;
+export function getRandomNumber(max: number, min: number = 0) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }

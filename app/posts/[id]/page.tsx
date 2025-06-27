@@ -12,7 +12,7 @@ export async function generateMetadata({
 }: {
   params: { id: number };
 }): Promise<Metadata> {
-  const { id } = params;
+  const { id } = await params;
   let post: BlogData | null = null;
   let error: null | string = null;
 
@@ -49,7 +49,7 @@ export async function generateMetadata({
 }
 
 async function page({ params }: { params: { id: number } }) {
-  const { id } = params;
+  const { id } = await params;
   let postDetails: BlogData | null = null;
   let error: null | string = null;
 

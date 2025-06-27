@@ -1,6 +1,6 @@
 "use client";
 import type { BlogData } from "@/types/blog";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import BlogCard from "./BlogCard";
 import Pagination from "../ui/Pagination";
 

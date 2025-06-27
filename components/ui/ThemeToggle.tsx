@@ -1,4 +1,3 @@
-import useTheme from "@/hooks/useTheme";
 import Image from "next/image";
 import React from "react";
 import sun from "@/public/icons/sun.svg";
