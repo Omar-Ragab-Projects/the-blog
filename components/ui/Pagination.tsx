@@ -19,11 +19,12 @@ function Pagination({
   setPaginateIndexes,
 }: PaginationTypes) {
   React.useEffect(() => {
-    setPaginateIndexes &&
+    if (setPaginateIndexes) {
       setPaginateIndexes({
         start: currentPaginate * postsPerPaginate - postsPerPaginate,
         end: currentPaginate * postsPerPaginate,
       });
+    }
   }, [currentPaginate, postsPerPaginate, setPaginateIndexes]);
 
   const totalPagesArray = React.useMemo(
