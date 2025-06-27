@@ -3,16 +3,11 @@ import React, { Fragment } from "react";
 import photo from "@/public/image.png";
 import { BlogData } from "@/types/blog";
 import CategoriesList from "@/components/home/CategoriesList";
-import { Metadata } from "next";
 import { errorMetadata } from "@/lib/constants";
 import { redirect } from "next/navigation";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { id: number };
-}): Promise<Metadata> {
-  const { id } = await params;
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const { id } = params;
   let post: BlogData | null = null;
   let error: null | string = null;
 
@@ -26,7 +21,7 @@ export async function generateMetadata({
       error = "Error";
     }
   }
-  console.log(post);
+
   if (!error && post?.title)
     return {
       title: post?.title,
@@ -48,8 +43,8 @@ export async function generateMetadata({
   return errorMetadata;
 }
 
-async function page({ params }: { params: { id: number } }) {
-  const { id } = await params;
+async function page({ params }: { params: { id: string } }) {
+  const { id } = params;
   let postDetails: BlogData | null = null;
   let error: null | string = null;
 
