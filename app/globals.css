@@ -1,26 +1,197 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-light-purple: #f9f5ff;
+  --color-pink: #c11574;
+  --color-light-pink: #fcf2fa;
+  --color-blue: #3538cd;
+  --color-light-blue: #eef4ff;
+  --color-green: #027a48;
+  --color-light-green: #ecfdf3;
+  --color-navy: #363f72;
+  --color-light-navy: #f8f9fc;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-background: #ffffff;
+  --color-onground: #090d1f;
+  --color-foreground: #1a1a1a;
+  --color-paragraph: #667085;
+  --color-purple: #6941c6;
+  --animate-time: 0.6s;
+  --animate-fadeout: fadeout var(--animate-time) forwards;
+  --animate-fadein: fadein var(--animate-time) forwards;
+  --animate-openRight: openRight var(--animate-time) forwards;
+  --animate-closeRight: closeRight var(--animate-time) forwards;
+  --animate-rotateIn: rotateIn var(--animate-time) forwards;
+  --animate-rotateOut: rotateOut var(--animate-time) forwards;
+  --animate-initHeader: initHeader 1s forwards;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.dark {
+  --color-background: #090d1f;
+  --color-onground: #ffffff;
+  --color-foreground: #ffffff;
+  --color-paragraph: #c0c5d0;
+}
+
+@layer components {
+  .section-header {
+    @apply text-2xl leading-8 mb-8 font-semibold;
+  }
+
+  .disable-btn {
+    @apply text-paragraph opacity-60 !cursor-auto select-none;
   }
 }
 
+@utility flex-between {
+  @apply flex items-center justify-between;
+}
+
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+@utility row-post-card {
+  @apply grid grid-cols-2 gap-6;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+.container {
+  @apply mx-auto;
+}
+
+@media (width <= 64rem) {
+  .container {
+    width: 100%;
+    max-width: unset;
+  }
+}
+
+.inner-container {
+  @apply my-[60px] px-8 lg:px-0;
+}
+
+.blog-posts-wrap > article {
+  animation: moveIn 1s;
+}
+
+.position-y-center {
+  @apply absolute top-1/2 -translate-y-1/2;
+}
+
+.position-x-center {
+  @apply absolute left-1/2 -translate-x-1/2;
+}
+
+.transition-5 {
+  transition-duration: 0.5s;
+}
+
+.transition-delay-2 {
+  transition-delay: 0.2s;
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    rotate: 0deg;
+  }
+  50% {
+    rotate: -45deg;
+  }
+  100% {
+    opacity: 1;
+    rotate: 0deg;
+  }
+}
+
+@keyframes openRight {
+  0% {
+    opacity: 0;
+    width: 20%;
+    overflow: hidden;
+    text-overflow: nowrap;
+  }
+  50% {
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+@keyframes closeRight {
+  0% {
+    opacity: 1;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: nowrap;
+  }
+
+  100% {
+    opacity: 0;
+    width: 20%;
+    display: none;
+  }
+}
+
+@keyframes rotateIn {
+  0% {
+    rotate: 0;
+  }
+  100% {
+    rotate: -360deg;
+  }
+}
+
+@keyframes rotateOut {
+  0% {
+    rotate: 0;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+@keyframes initHeader {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50%,
+  75% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes moveIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
