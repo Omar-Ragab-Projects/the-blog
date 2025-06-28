@@ -33,13 +33,13 @@ function AllBlogPosts({ posts }: { posts: BlogData[] }) {
           </div>
         </div>
 
-        {/* <Pagination
+        <Pagination
           postsPerPaginate={postsPerPaginate}
           currentPaginate={currentPaginate}
           setCurrentPaginate={setCurrentPaginate}
           totalPages={totalPages}
           setPaginateIndexes={setPaginateIndexes}
-        /> */}
+        />
       </div>
     </section>
   );
