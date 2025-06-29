@@ -61,7 +61,7 @@ async function page({ params }: { params: { id: string } }) {
 
   if (postDetails?.title && !error)
     return (
-      <article className="mt-16 relative">
+      <article className="mt-16 relative px-4 mb-16">
         <span className="text-sm text-purple">Sunday , 1 Jan 2023</span>
         <h3 className="text-4xl font-bold my-8">{postDetails?.title}</h3>
         <Image

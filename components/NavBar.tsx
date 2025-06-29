@@ -34,7 +34,7 @@ function NavBar() {
     <>
       {/* Mobile Nav */}
       <nav
-        className={`md:hidden flex-center flex-col gap-14 py-[18px] px-[20px] xl:px-0 bg-background absolute right-0 top-0 h-full ${
+        className={`md:hidden flex-center flex-col gap-14 py-[18px] px-[20px] xl:px-0 bg-background fixed z-20 right-0 top-0 h-full ${
           isMenuOpen
             ? "animate-openRight"
             : menuHasOpened
@@ -59,7 +59,7 @@ function NavBar() {
         />
       </nav>
       <nav
-        className={`md:hidden flex-between py-[18px] px-[20px] xl:px-0 mt-[30px] 
+        className={`md:hidden flex-between py-[18px] px-[20px] xl:px-0 mt-[30px] sticky top-0 bg-background z-10
         ${isMenuOpen ? "opacity-0" : ""}`}
       >
         <Logo />
@@ -68,7 +68,7 @@ function NavBar() {
       </nav>
 
       {/* Desktop Nav */}
-      <nav className="hidden md:flex-between py-[18px] px-[20px] xl:px-0 mt-[30px]">
+      <nav className="hidden md:flex-between py-[18px] px-[20px] xl:px-0 mt-[30px] sticky top-0 bg-background z-10">
         <Logo />
 
         <div className="flex gap-[14px] items-center">

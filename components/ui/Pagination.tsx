@@ -68,9 +68,12 @@ function Pagination({
   const visiblePages = getVisiblePages();
 
   return (
-    <nav className="flex-between my-6" aria-label="Pagination">
+    <div
+      className="flex-between flex-col md:flex-row  my-6"
+      aria-label="Pagination"
+    >
       <button
-        className={`flex-center gap-2 cursor-pointer ${
+        className={`flex-center gap-2 cursor-pointer mb-4 sm:my-0 mr-auto ${
           currentPaginate === 1 ? "disable-btn" : ""
         }`}
         onClick={handlePreviousPaginate}
@@ -107,7 +110,7 @@ function Pagination({
         )}
       </ul>
       <button
-        className={`flex-center gap-2 cursor-pointer ${
+        className={`flex-center gap-2 cursor-pointer mt-4 sm:my-0 ml-auto  ${
           currentPaginate === totalPages ? "disable-btn" : ""
         }`}
         onClick={handleNextPaginate}
@@ -117,7 +120,7 @@ function Pagination({
         <span>Next</span>
         <Image src={arrowRight} alt="Next paginate" />
       </button>
-    </nav>
+    </div>
   );
 }
 
