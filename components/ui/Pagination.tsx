@@ -80,7 +80,11 @@ function Pagination({
         disabled={currentPaginate === 1}
         aria-label="Previous page"
       >
-        <Image src={arrowLeft} alt="Previous paginate" />
+        <Image
+          src={arrowLeft}
+          alt="Previous paginate"
+          className="invert-100 dark:invert-0"
+        />
         <span>Previous</span>
       </button>
       <ul className="flex gap-[2px] justify-end">
@@ -118,7 +122,11 @@ function Pagination({
         aria-label="Next page"
       >
         <span>Next</span>
-        <Image src={arrowRight} alt="Next paginate" />
+        <Image
+          src={arrowRight}
+          alt="Next paginate"
+          className="invert-100 dark:invert-0"
+        />
       </button>
     </div>
   );
